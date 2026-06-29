@@ -57,24 +57,23 @@ document.addEventListener("DOMContentLoaded", () => {
       const updatedName = fullnameInput.value.trim();
       const updatedCurrency = currencySelect.value;
 
-      loggedInUser.username = updatedName;
-      loggedInUser.currency = updatedCurrency;
-
-      setLoggedInUser(loggedInUser);
-
       const users = getAllUsers();
-      const index = users.findIndex((user) => user.id === loggedInUser.id);
+      const freshUser = getLoggedInUser();
+      const index = users.findIndex((user) => user.id === freshUser.id);
+
       if (index !== -1) {
-        users[index] = loggedInUser;
+        users[index].username = updatedName;
+        users[index].currency = updatedCurrency;
         saveUsers(users);
+        setLoggedInUser(users[index]);
       }
-      
-      // Update the header to show the new name instantly
+
+      // Update the header name instantly
       const headerRight = document.querySelector(".header-right h4");
       if (headerRight) {
         headerRight.textContent = updatedName;
       }
-      
+
       updateDashboard();
       alert("Profile updated successfully.");
     });
@@ -93,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (document.querySelector("#transaction-form")) {
         document.querySelector("#transaction-form").reset();
       }
-      
+
       const dateInput = document.querySelector("#date");
       if (dateInput) {
         dateInput.value = new Date().toISOString().split("T")[0];
@@ -228,14 +227,14 @@ document.addEventListener("DOMContentLoaded", () => {
             {
               label: "Income",
               data: [income],
-              backgroundColor: "#057a55", 
+              backgroundColor: "#057a55",
               barPercentage: 0.8,
               categoryPercentage: 0.5,
             },
             {
               label: "Expenses",
               data: [expense],
-              backgroundColor: "#c81e1e", 
+              backgroundColor: "#c81e1e",
               barPercentage: 0.8,
               categoryPercentage: 0.5,
             },
