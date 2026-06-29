@@ -52,7 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
     fullnameInput.value = loggedInUser.username || "";
     currencySelect.value = loggedInUser.currency || "USD ($)";
 
-    saveBtn.addEventListener("click", () => {
+    saveBtn.addEventListener("click", (e) => {
+      e.preventDefault();
       const updatedName = fullnameInput.value.trim();
       const updatedCurrency = currencySelect.value;
 
@@ -67,6 +68,14 @@ document.addEventListener("DOMContentLoaded", () => {
         users[index] = loggedInUser;
         saveUsers(users);
       }
+      
+      // Update the header to show the new name instantly
+      const headerRight = document.querySelector(".header-right h4");
+      if (headerRight) {
+        headerRight.textContent = updatedName;
+      }
+      
+      updateDashboard();
       alert("Profile updated successfully.");
     });
   }
