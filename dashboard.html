@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FinTrack Pro</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <div id="sidebar"></div>
+
+      <div class="dashboard-content">
+        <div id="header"></div>
+
+        <main class="main-content">
+          <!-- Dashboard Section -->
+          <section id="dashboard-page" class="page active-page">
+            <div class="page-header">
+              <h1>Financial Overview</h1>
+              <p>Real-time tracking application</p>
+            </div>
+
+            <!-- Stat Cards -->
+            <div class="stat-cards">
+              <div class="stat-card">
+                <div class="icon-box icon-blue">
+                  <i class="ri-government-line"></i>
+                </div>
+                <p>Current Balance</p>
+                <h3 id="stat-balance">$0.00</h3>
+              </div>
+              <div class="stat-card">
+                <div class="icon-box icon-green">
+                  <i class="fa-solid fa-arrow-trend-up"></i>
+                </div>
+                <p>Total Income</p>
+                <h3 id="stat-income" class="text-green">$0.00</h3>
+              </div>
+              <div class="stat-card">
+                <div class="icon-box icon-red">
+                  <i class="fa-solid fa-arrow-trend-down"></i>
+                </div>
+                <p>Total Expense</p>
+                <h3 id="stat-expense" class="text-red">$0.00</h3>
+              </div>
+              <div class="stat-card">
+                <div class="icon-box icon-purple">
+                  <i class="fa-solid fa-piggy-bank"></i>
+                </div>
+                <p>Total Transactions</p>
+                <h3 id="stat-count">0</h3>
+              </div>
+            </div>
+
+            <div class="dashboard-middle">
+              <div class="chart-section">
+                <h2>Cash Flow Analysis</h2>
+                <div class="chart-container">
+                  <canvas id="chart"></canvas>
+                </div>
+              </div>
+
+              <div class="preferences-section">
+                <h2>Preferences</h2>
+                <div class="pref-item">
+                  <span>Dark Mode</span>
+                  <label class="switch">
+                    <input type="checkbox" />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <button class="reset-btn">
+                  <i class=fa-solid fa-magnifying-glass></i>
+                  Reset All Data
+                </button>
+              </div>
+            </div>
+
+            <div class="transactions-section">
+              <h2>All Transactions</h2>
+              <div class="transactions-controls">
+                <div class="search-box">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#6b7280"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-search"
+                  >
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.3-4.3" />
+                  </svg>
+                  <input type="text" placeholder="Search transactions..." />
+                </div>
+                <select class="type-filter">
+                  <option>All Types</option>
+                  <option>Income</option>
+                  <option>Expense</option>
+                </select>
+              </div>
+
+              <table class="transactions-table">
+                <thead>
+                  <tr>
+                    <th>DATE</th>
+                    <th>DESCRIPTION</th>
+                    <th>CATEGORY</th>
+                    <th>AMOUNT</th>
+                    <th>ACTIONS</th>
+                  </tr>
+                </thead>
+                <tbody id="transactions-list"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="settings-page" class="page">
+            <div class="page-header">
+              <h1>Settings</h1>
+
+              <p>Manage your account profile and app formatting.</p>
+            </div>
+
+            <div class="settings-card">
+              <h2>Profile Details</h2>
+
+              <form id="settings-form">
+                <div class="settings-form">
+                  <div class="input-group">
+                    <label for="full-name"> Full Name </label>
+
+                    <input type="text" id="full-name" />
+                  </div>
+
+                  <div class="input-group">
+                    <label for="currency"> Preferred Currency </label>
+
+                    <select id="currency">
+                      <option>USD ($)</option>
+                      <option>INR (₹)</option>
+                      <option>EUR (€)</option>
+                      <option>GBP (£)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button class="save-btn">Save Changes</button>
+              </form>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <!-- Modal Container -->
+    <div id="modal-container"></div>
+    <script src="./js/utils.js"></script>
+    <script src="./js/layout.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/dashboard.js"></script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login -FinTrack Pro</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/auth.css" />
+  </head>
+  <body>
+    <div class="auth-container">
+      <div class="auth-card">
+        <h1 class="auth-title">Create Account</h1>
+        <p class="auth-subtitle">Join Fin Track Pro</p>
+        <form id="register-form">
+          <div class="user-input">
+            <label for="username">Choose a Username</label>
+            <input type="text" name="username" id="username" />
+          </div>
+          <div class="user-input">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" />
+          </div>
+          <button id="register-btn" type="submit">register</button>
+        </form>
+        <p class="switch-page">
+          Already have an account?
+
+          <a href="register.html"> Login here </a>
+        </p>
+      </div>
+    </div>
+    <script src="./js/auth.js"></script>
+    <script src="./js/utils.js"></script>
+  </body>
+</html>
