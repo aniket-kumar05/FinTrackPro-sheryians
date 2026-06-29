@@ -831,3 +831,53 @@ body.dark-mode #logout-btn {
   color: #f9fafb;
   border-color: #4b5563;
 }
+
+/* Fix icon visibility in dark mode */
+body.dark-mode .logo-icon {
+  color: #f9fafb;
+}
+
+body.dark-mode .nav-link i {
+  color: inherit;
+}
+
+body.dark-mode .icon-blue i {
+  color: #60a5fa;
+}
+
+body.dark-mode .icon-green i {
+  color: #34d399;
+}
+
+body.dark-mode .icon-red i {
+  color: #f87171;
+}
+
+body.dark-mode .icon-purple i {
+  color: #a78bfa;
+}
+
+body.dark-mode .add-transaction-btn i {
+  color: white;
+}
+
+body.dark-mode #logout-btn i {
+  color: #f9fafb;
+}
+
+body.dark-mode .edit-btn {
+  color: #60a5fa;
+}
+
+body.dark-mode .delete-btn {
+  color: #f87171;
+}
+
+body.dark-mode .close-modal-btn {
+  color: #f9fafb;
+}
+
+body.dark-mode .form-group label,
+body.dark-mode .form-group select option {
+  color: #f9fafb;
+}
